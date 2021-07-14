@@ -99,3 +99,63 @@ Date:   Wed Jul 14 23:35:18 2021 +0900
 <br>
 
 ## 3. 커밋 내용 확인하기
+
+### - git log
+
+---
+
+`git log` : 저장소에 저장된 버전을 확인할 수 있는 명령어<br>
+ 이전의 사진을 통해 `git log` 명령어의 예시를 확인할 수 있다.
+ 
+### - git diff
+ 
+---
+ 
+`git diff` : working tree에 있는 파일과 stage에 있는 파일을 비교하거나, <br>
+stage에 있는 파일과 repository에 있는 최신 커밋을 비교해서 수정한 파일을 커밋하기 전에 최종적으로 검토할 수 있다.
+ 
+<br>
+ 
+## 4. 버전 만드는 단계마다 파일 상태 알아보기
+ 
+![st](https://user-images.githubusercontent.com/84573261/125642901-caaf2e76-14bf-4396-835d-171b9dcf58dd.jpg)
+ 
+<br>
+ 
+## 5. 작업 되돌리기
+ 
+### - git checkout
+
+---
+
+`git checkout` : working tree에서 수정한 파일 되돌려주는 명령어이다.
+
+
+### - git reset HEAD 파일명
+
+---
+
+`git reset HEAD 파일명` : staging 되돌려주는 명령어이다.<br><br>
+ 이전의 `git checkout`은 파일의 수정을 취소하고 원래대로 되돌려주었는데, <br>
+ `git reset` 명령어는 staging 했을 때 staging을 취소하도록 도와준다.
+ 
+ ### - git reset HEAD^
+ 
+ ---
+ 
+ `git reset HEAD^` : 최신 commit으로 되돌려주는 명령어이다.
+ 
+ ### - git reset 커밋 해시
+ 
+ ---
+ 
+ `git reset --hard 복사한 커밋 해시` : 특정 commit으로 되돌려주는 명령어이다.
+ 
+ ### - git revert
+ 
+ ---
+ 
+ `git revert 복사한 특정 해시` : 커밋을 삭제하지 않고 되돌려주는 명령어이다. <br><br>
+ 
+ 커밋으로 되돌릴 때 수정했던 것을 삭제해도 된다면 `git reset` 명령을 사용해도 되지만,<br>
+ 커밋을 삭제하지 않고 되돌리고 싶다면 `git revert` 명령어를 사용해야 한다.
