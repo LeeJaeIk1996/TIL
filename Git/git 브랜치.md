@@ -74,3 +74,22 @@ apple 브랜치가 추가되면서 `(HEAD -> master, apple)`로 바뀌었음을 
 `git checkout` : 현재 브랜치에서 다른 브랜치로 이동시켜주는 명령어
 
 ![checkout](https://user-images.githubusercontent.com/84573261/125772078-fe26fe8f-d538-440d-8b8d-2be81596b92c.PNG)
+
+```bash
+$ git checkout apple
+Switched to branch 'apple'
+```
+
+이를 통해, 현재 브랜치인 master에서 apple로 브랜치가 이동되었음을 확인할 수 있다.
+
+```bash
+$ git log --oneline
+f97f2ae (HEAD -> apple, ms, google) work 3
+c6a8518 work 2
+78a23d9 work 1
+```
+
+이를 통해, apple 브랜치가 master 브랜치에서 분기된 이후에 master 브랜치에 추가된 커밋은<br>
+apple 브랜치에 영향을 미치지 않았다는 것을 알 수 있다.
+
+
