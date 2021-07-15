@@ -175,4 +175,30 @@ Date:   Thu Jul 15 20:00:44 2021 +0900
 
 ---
 
+![merge](https://user-images.githubusercontent.com/84573261/125804972-cf001686-e40d-49fa-87da-9fc170bef41e.PNG)
+
+<br>
+
+```bash
+sec@DESKTOP-K48FQ26 MINGW64 ~/manual-2 (master)
+$ git merge o2
+Merge made by the 'recursive' strategy.
+ o2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 o2.txt
+```
+
+`git marge` 로 기존의 master에 o2 브랜치를 가져와 병합하는 것을 볼 수 있다.<br>
+이를 확인하면, <br>
+
+
+![merge2](https://user-images.githubusercontent.com/84573261/125805467-6c56cf9a-1949-460c-84e8-6bcc0ecd8e6d.PNG)
+
+<br>
+
+위의 사진과 같이 병합된 것을 확인할 수 있다.
+<br>
+
+
+
 
