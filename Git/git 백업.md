@@ -74,3 +74,46 @@ remote repository는 local repository와 연결되어 있으면서 '백업'과 '
 ## 4. github에 SSH 원격 접속하기
 
 ### SSH 원격 접속?
+
+---
+
+`SSH` : **Secure Shell**의 줄임말로, 보안이 강화된 안전한 방법으로 정보를 교환하는 방식. <br>
+**SSH**에서는 기본적으로 `Private Key'와 'Public Key`를 한 쌍으로 묶어 컴퓨터를 인증한다.
+
+### SSH 키 생성하기
+
+---
+
+`ssh-keygen` : ssh 키 생성 명령어.
+
+![SSHmake](https://user-images.githubusercontent.com/84573261/126039515-088385e8-ea0f-4945-bbe6-899bacaffaea.PNG)
+
+```hash
+Your identification has been saved in /c/Users/sec/.ssh/id_rsa
+Your public key has been saved in /c/Users/sec/.ssh/id_rsa.pub
+```
+여기서 `id_rsa`파일이 **Private Key**, `id_rsa.pub`파일이 **Public Key**이다.
+
+![sshlook](https://user-images.githubusercontent.com/84573261/126039637-52c1797f-3df9-4efb-8bce-b4da2f7b6123.PNG)
+
+위 사진을 통해 .ssh 디렉터리 안에 private key `id_rsa`파일과 public key `id_rsa.pub`파일이 만들어진 것을 확인할 수 있다.
+
+### github에 Public Key 전송하기
+
+---
+
+```hash
+SSH 방식의 원리는 
+사용자 컴퓨터에 있는 Public Key를 github server로 전송한 다음,
+사용자 컴퓨터에서 github repository에 접속하면 사용자 컴퓨터에 있는 Private Key와 
+github server에 있는 Public Key를 비교하는 것이다.
+```
+
+![sshpub](https://user-images.githubusercontent.com/84573261/126039830-eeecb55f-d79c-49fd-ba15-ccc523b7aee3.PNG)
+
+위 사진과 같이 우선 **Public Key**에 담긴 내용을 확인한다.
+
+![pub](https://user-images.githubusercontent.com/84573261/126039862-ffc13d1c-4ba5-4bb0-94b4-add2749d3934.PNG)
+
+그 뒤 **Public Key**에 담긴 내용을 복사하여 깃허브 서버에 올린다.<br>
+이렇게 SSH 방식을 사용하면 로그인 정보를 입력하지 않고도 즉시 해당 저장소에 접속할 수 있다.
