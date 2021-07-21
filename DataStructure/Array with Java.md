@@ -223,7 +223,7 @@ public class ArrayEqual {
 	
 	System.out.println("배열 a와 b는 " +
 						(equals(a,b) ? "같습니다."
-									: "같지 않습니다."));
+						 : "같지 않습니다."));
 		
 	}
 
