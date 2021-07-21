@@ -97,6 +97,12 @@
 
 ---
 
-
-
+**금일 배운 것들 정리**
+1. 가상환경에 들어가기 위해선 `venv/Scripts\activate.bat`을 입력한다. 나가기 위해선 `deactivate`를 입력한다.
+2. 장고를 설치하기 위해선 `pip install django`를 입력한다. 설치한 장고의 버전을 확인하기 위해선 `pip list`를 입력한다.
+3. 장고 프로젝트를 생성하기 위해선 `django-admin startproject 프로젝트 명 . `을 입력한다. 설치한 프로젝트의 폴더를 열어보면 **urls.py**와 **settings.py**가 있는데, **urls.py**는 사용자가 어떤 URL 형식으로 접근했을 때 어떻게 웹 사이트를 작동시킬지를 정리해놓은 파일이고, **settings.py**는 이 장고 프로젝트의 설정을 담고 있는 파일이다.
+4. 서버를 실행하기 위해선 `python manage.py runserver`를 입력한다. 서버를 중단하기 위해선 **Ctrl+C**를 입력한다.
+5. `python manage.py migrate`를 입력하면 db.sqlite3이 새로 생성되고, 그 안에 마이그레이션을 반영한 데이터베이스가 생성된다.
+6. 관리자 계정을 생성하기 위해선 `python manage.py createsuperuser`를 입력한다.
+7. 마지막에 `git add . `과 `git commit`, `git push`로 깃허브에 저장하는거 잊지 말자.
 
