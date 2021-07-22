@@ -134,7 +134,46 @@ created_at = models.DateTimeField(auto_now_add=True)
 
 ![fin3](https://user-images.githubusercontent.com/84573261/126625152-522687c6-03d1-4408-9d48-a82d07d7e782.PNG)
 
+---
 
+금일 배운 것 정리
+1. `python manage.py startapp 명` → 앱을 만드는 명령어
+2. **admin.py, apps.py, models.py, tests.py, views.py** → 앱을 만든 뒤 생기는 폴더들
+3. Post 모델 만들기위한 코드
+
+```Python
+from django.db import models
+
+# Create your models here.
+class Post(models.Model):
+    title = models.CharField(max_length=30)
+    content = models.TextField()
+
+    created_at = models.DateTimeField()
+```
+
+4. `python manage.py makemigrations`, `python manage.py migrate`
+5. **admin.py**에 Post 모델 등록하기 위한 코드
+
+```Python
+from .models import Post
+
+admin.site.register(Post)
+```
+
+6. **___str()___** 함수로 포스트 제목과 번호 보여주는 코드
+
+```Python
+    def __str__(self):
+        return f'[{self.pk}] {self.title}'
+```
+
+7. 자동으로 작성 시각과 수정 시각 저장해주는 코드
+
+```Python
+created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+```
 
 
 
