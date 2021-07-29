@@ -78,7 +78,7 @@ Django에서 Model 클래스를 생성하고 난 후, 해당 Model에 상응하�
 Python 모델 클래스의 수정 및 생성을 DB에 적용하는 과정을 Migration이라 한다. <br>
 이는 Django가 기본적으로 제공하는 ORM서비스를 통해 진행된다.
 
-## 1. Migration command
+## 2. Migration command
 
 - `migrate` : migration을 적용하거나 적용 해제한다.<br>
 (migrate, which is responsible for applying and unapplying migrations.)
