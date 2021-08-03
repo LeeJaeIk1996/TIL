@@ -86,7 +86,7 @@ def navbar_test(self, soup):
 - `navbar = soup.nav`: **soup.nav로 soup에 담긴 내용 중 nav 요소만 가져와 navbar에 저장.**
 - `self.assertIn('Blog', navbar.text)` : **navbar의 텍스트 중에 Blog가 있는지 확인.**
 - `logo_btn = navbar.find('a', text='JaeIk Lee')`: **navbar.find로 네비게이션 바에서 'JaeIk Lee'라는 문구를 가진 a요소를 찾아 logo_btn변수에 담음.** 
-- `self.assertEqual(logo_btn.attrs['href'], '/')`: **a 요소에서 href 속성을 찾아 값이 '/'인지 확인한다.
+- `self.assertEqual(logo_btn.attrs['href'], '/')`: **a 요소에서 href 속성을 찾아 값이 '/'인지 확인한다.**
 - ![jaeiklee](https://user-images.githubusercontent.com/84573261/128062723-ad8f980b-14f6-4df2-9298-0bb3df267421.PNG)
 
 ## 4. test_post_list(self) 함수
@@ -144,7 +144,7 @@ def test_post_list(self):
 - `soup = BeautifulSoup(response.content, 'html.parser')`: **HTML 요소에 쉽게 접근하기 위해 먼저 Beautifulsoup으로 읽어들이고, html.parser명령어로 파싱한 결과를 soup에 담음.**
 - `post_001 = Post.objects.create( ~ )`: **Post 레코드가 데이터베이스에 존재하는 상황도 테스트하기 위해 포스트를 2개 만든다. 
 Post.objects.create()로 새로운 포스트를 만들 수 있다. 매개변수에는 Post 모델의 필드 값을 넣는다.**
-- `self.assertNotIn('아직 게시물이 없습니다', main_area.text)`: **포스트가 생성되었으므로 '아직 게시물이 없습니다'라는 문구가 메인 영역에 더이상 나타나지 않아야 한다.
+- `self.assertNotIn('아직 게시물이 없습니다', main_area.text)`: **포스트가 생성되었으므로 '아직 게시물이 없습니다'라는 문구가 메인 영역에 더이상 나타나지 않아야 한다.**
 
 ## 5. test_post_detail(self) 함수
 
