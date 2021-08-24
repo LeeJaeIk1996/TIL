@@ -1,4 +1,4 @@
-# ✔ Generic View 정리
+# ✏ Generic View 정리
 
 ## 1. Generic display views
 
@@ -44,6 +44,16 @@
 3. **UpdateView**: 기존의 객체를 수정하는 Form을 출력하는 view이다.
 
 4. **DeleteView**: 기존에 있는 객체를 삭제하는 Fomr을 출력하는 view이다.
+
+✔ (08/24. **form_valid**에 대해 공부한 후 추가 사항)
+
+CreateView, UpdateView는 **django.views.generic.edit.ModelFormMixin**를 상속받는다.
+
+- get_form_class()
+- get_form_kwargs(): 현재 인스턴스(self.object)를 표준 get_form_kwargs()로 추가.
+- get_success_url(): form이 성공적으로 유효성이 검사될 때 보내주기(redirect)위한 url을 결정한다. 만약 django.views.generic.edit.ModelFormMixin.success_url이 제공된다면 이를 return하고, 그렇지 않다면 객체의 get_absolute_url()을 사용하는 것을 시도한다. 
+- **form_valid(form)**: form 인스턴스를 저장하고, get_success_url()로 보내줌(redirect).
+- form_invalid(form): form이 유효하지 않다면 렌더링한다.
 
 ---
 
