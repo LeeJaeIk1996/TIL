@@ -3,35 +3,38 @@
 ## 1. Model Field Types
 
 - primary key: AutoField, BigAutoField<br>
-`AutoField`: **pk**로 사용 가능한 자동으로 증가하는 IntegerField다.<br>
+🏷 `AutoField`: **pk**로 사용 가능한 자동으로 증가하는 IntegerField다.<br>
 (**모델의 primary key 필드는 별도로 지정하지 않을 경우 자동으로 추가된다.**)
 
 - 문자열: **CharField**, **TextField**, SlugField
 
 - 날짜, 시간: DateField, TimeField, **DateTimeField**, DurationField<br>
-`DateTimeField`: 옵션으로 **auto_now**와 **auto_now_add**가 있다.<br>
-★ **auto_now**: 모델이 **저장될 때 마다** 매번 자동으로 현재 시간이 설정된다.<br>
-★ **auto_now_add**: 모델이 **처음 생성될 때** 자동으로 현재 시간이 설정된다.<br>
-`DurationField`: 시간주기를 위한 필드이며, Python에서 timedelta로 모델링한다.
+🏷 `DateTimeField`: 옵션으로 **auto_now**와 **auto_now_add**가 있다.
+  - **auto_now**: 모델이 **저장될 때 마다** 매번 자동으로 현재 시간이 설정된다.
+  - **auto_now_add**: 모델이 **처음 생성될 때** 자동으로 현재 시간이 설정된다.
+
+  🏷 `DurationField`: 시간주기를 위한 필드이며, Python에서 timedelta로 모델링한다.
 
 - 참, 거짓: BooleanField, NullBooleanField
 
 - 숫자: **IntegerField**, SmallIntegerField, PostiveIntegerField, PostiveSmallIntegerField, BigIntegerField, DecimalField, FloatField
 
-- 파일: BinaryField, **FileField**, **ImageField**, FilePathField
+- 파일: BinaryField, **FileField**, **ImageField**, FilePathField<br>
+🏷 `ImageField`를 넣고 migration을 할 경우 **Pillow가 설치되어 있지 않아 ImageField를 사용할 수 없다**는 오류 메시지가 나온다.<br>
+**Pillow**는 Python에서 이미지를 처리하기 위한 라이브러리로, `python -m pip install Pillow`를 통해 Pillow를 설치해야 한다.
 
 - 이메일: **EmailField**<br>
-`EmailField`: 유효한 이메일 주소인지 체크하는 CharField이다. 입력값을 검증하는데 EmailValidator를 사용한다.<br>
+🏷 `EmailField`: 유효한 이메일 주소인지 체크하는 CharField이다. 입력값을 검증하는데 EmailValidator를 사용한다.<br>
 EmailValidator 참고: [Django EmailValidator](https://docs.djangoproject.com/en/3.2/ref/validators/#emailvalidator)
 
 - URL: URLField<br>
-`URLField`: 주소를 받을 때 사용. URL을 위한 필드이다.
+🏷 `URLField`: 주소를 받을 때 사용. URL을 위한 필드이다.
 
 - UUID: UUIDField<br>
-`UUIDField`: universally unique identifiers를 저장하기 위한 필드다. 
+🏷 `UUIDField`: universally unique identifiers를 저장하기 위한 필드다. 
 
 - IP: GenericIPAddressField<br>
-`GenericIPAddressField`: 문자열 형식에 IPv4 나 IPv6 주소이다.
+🏷 `GenericIPAddressField`: 문자열 형식에 IPv4 나 IPv6 주소이다.
 
 
 
