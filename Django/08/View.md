@@ -15,6 +15,23 @@
 ++ **get_queryset()와 queryset의 차이**: **queryse**t은 request발생 시 한번만 쿼리셋이 동작하지만, **get_queryset()은** 모든 request마다 동작한다.
 - `get_context_object_name(object_list)`
 - `get_context_data(**kwargs)`: model의 이름으로 context를 넘겨주는 역할이며, model 이름 외에도 object라는 이름으로도 사용이 가능하다.
+  - ✔ (08/29. **get_context_data** 에 대해 공부한 후 추가 사항)
+  
+  ```python
+  def get_context_data(self, **kwargs):
+    context = super(PostList, self).get_context_data()
+    context['categories'] = Category.objects.all()
+    context['no_category_post_count'] = Post.objects.filter(category=None).count()
+    
+    return
+  ```
+  
+  ```hash
+  1. context = super(PostList, self).get_context_data()로 
+     get_context_data에서 기존에 제공했던 기능을 그대로 가져와 context에 저장.
+  2. 원하는 쿼리셋을 만들어 딕셔너리 형태로 context에 담음(QuerySet: 전달받은 모델의 객체 목록)
+  ```
+
 - `get(request, *args, **kwargs)`: context에 object_list를 추가한다. 만약 allow_empty가 True이면 빈 목록을 보여준다. 만약 allow_empty가 False이면 404 오류를 발생시킨다.
 - `render_to_response(context, **response_kwargs)`
 
@@ -43,17 +60,21 @@
 
 3. **UpdateView**: 기존의 객체를 수정하는 Form을 출력하는 view이다.
 
-4. **DeleteView**: 기존에 있는 객체를 삭제하는 Fomr을 출력하는 view이다.
+4. **DeleteView**: 기존에 있는 객체를 삭제하는 Form을 출력하는 view이다.
 
 ✔ (08/24. **form_valid**에 대해 공부한 후 추가 사항)
 
-CreateView, UpdateView는 **django.views.generic.edit.ModelFormMixin**를 상속받는다.
+```hash
+ CreateView, UpdateView는 **django.views.generic.edit.ModelFormMixin**를 상속받는다.
 
-- get_form_class()
-- get_form_kwargs(): 현재 인스턴스(self.object)를 표준 get_form_kwargs()로 추가.
-- get_success_url(): form이 성공적으로 유효성이 검사될 때 보내주기(redirect)위한 url을 결정한다. 만약 django.views.generic.edit.ModelFormMixin.success_url이 제공된다면 이를 return하고, 그렇지 않다면 객체의 get_absolute_url()을 사용하는 것을 시도한다. 
-- **form_valid(form)**: form 인스턴스를 저장하고, get_success_url()로 보내줌(redirect).
-- form_invalid(form): form이 유효하지 않다면 렌더링한다.
+ 1. get_form_class()
+ 2. get_form_kwargs(): 현재 인스턴스(self.object)를 표준 get_form_kwargs()로 추가.
+ 3. get_success_url(): form이 성공적으로 유효성이 검사될 때 보내주기(redirect)위한 url을 결정한다. 
+    만약 django.views.generic.edit.ModelFormMixin.success_url이 제공된다면 이를 return하고, 
+    그렇지 않다면 객체의 get_absolute_url()을 사용하는 것을 시도한다. 
+ 4. form_valid(form): form 인스턴스를 저장하고, get_success_url()로 보내줌(redirect).
+ 5. form_invalid(form): form이 유효하지 않다면 렌더링한다.
+```
 
 ---
 
